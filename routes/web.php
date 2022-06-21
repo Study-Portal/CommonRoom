@@ -24,6 +24,10 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/chat', [App\Http\Controllers\Chat::class, 'index']);
+Route::get('/messages', [App\Http\Controllers\Chat::class, 'fetchMessages']);
+Route::post('/messages', [App\Http\Controllers\Chat::class, 'sendMessage']);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
